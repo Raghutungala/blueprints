@@ -18,7 +18,7 @@ A curated collection of production-ready web templates, interactive auth experie
 
 | Category | Template | Description | Status |
 | --- | --- | --- | --- |
-| **Portfolios** | [Bento-OS Developer Portfolio](templates/portfolios/bento-dev) | Ultra-premium Bento grid portfolio with spotlight cards, interactive terminal, command palette, and accent theming. | Available |
+| **Portfolios** | [Bento-OS Developer Portfolio](templates/portfolios/bento-dev) ([Live Demo ↗](https://blueprints-raghu-7da6.vercel.app/)) | Ultra-premium Bento grid portfolio with spotlight cards, interactive terminal, command palette, and accent theming. | Available |
 | **Auth** | [Sentinel-Auth](templates/auth/sentinel-auth) | Interactive glassmorphic auth with enterprise mode and playful evasive button physics. | Available |
 | **Greetings** | Coming Soon | Beautiful greeting cards and interactive welcome experiences. | Planned |
 | **Micro-Apps** | Coming Soon | Small, focused utility applications ready to deploy. | Planned |
@@ -28,21 +28,21 @@ A curated collection of production-ready web templates, interactive auth experie
 Each template is standalone and can be used independently:
 
 1. **Clone the repository**
-   `ash
+   ```bash
    git clone https://github.com/yourusername/blueprints.git
    cd blueprints
-   `
+   ```
 
 2. **Navigate to a template**
-   `ash
+   ```bash
    cd templates/portfolios/bento-dev
-   `
+   ```
 
 3. **Install dependencies and run**
-   `ash
+   ```bash
    npm install
    npm run dev
-   `
+   ```
 
 4. **Customize**
    Most templates include a single configuration file for easy customization. Check each template's README for specific instructions.

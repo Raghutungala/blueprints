@@ -1,4 +1,9 @@
-# Sentinel-Auth — Interactive Glassmorphic Auth & Playful Guard Suite
+# Sentinel-Auth - Interactive Glassmorphic Auth & Playful Guard Suite
+
+[![Built with Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?logo=typescript)]()
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?logo=tailwind-css&logoColor=white)]()
+[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-Animations-purple)]()
 
 An interactive authentication showcase featuring dual modes: sleek enterprise glassmorphism and playful evasive button physics. Built with Next.js 15, TypeScript, Tailwind CSS, and Framer Motion.
 
@@ -26,10 +31,10 @@ An interactive authentication showcase featuring dual modes: sleek enterprise gl
 
 ## Quick Start
 
-`ash
+```bash
 npm install
 npm run dev
-`
+```
 
 Open [http://localhost:3000](http://localhost:3000) to explore both modes.
 
@@ -51,13 +56,14 @@ Open [http://localhost:3000](http://localhost:3000) to explore both modes.
 
 ## Build & Deploy
 
-`ash
+```bash
 npm run build
 npm run start
-`
+```
 
 Deploy to [Vercel](https://vercel.com/), [Netlify](https://netlify.com/), or any platform supporting Next.js.
 
 ## License
 
-MIT License
+This project is licensed under the [MIT License](LICENSE).
+
