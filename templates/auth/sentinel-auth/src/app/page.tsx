@@ -1,66 +1,69 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { AuthProvider, useAuth } from '@/lib/AuthContext'
+import Header from '@/components/Header'
 import LeftPane from '@/components/LeftPane'
 import AuthCard from '@/components/AuthCard'
-import { Sparkles, Shield } from 'lucide-react'
 
-export default function Home() {
-  const [mode, setMode] = useState<'enterprise' | 'playful'>('enterprise')
+function SentinelAuthContent() {
+  const { themeConfig, mode } = useAuth()
 
   return (
-    <main className="min-h-screen flex">
-      <LeftPane />
-      
-      <div className="flex-1 flex flex-col items-center justify-center p-6 lg:p-12 relative">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="absolute top-6 flex items-center gap-2 p-1 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10"
-        >
-          <button
-            onClick={() => setMode('enterprise')}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all"
-            style={{
-              backgroundColor: mode === 'enterprise' ? 'rgba(6, 182, 212, 0.3)' : 'transparent',
-              color: mode === 'enterprise' ? 'white' : 'rgb(156 163 175)'
-            }}
-          >
-            <Shield className="w-4 h-4" />
-            <span className="text-sm">Enterprise Glass</span>
-          </button>
-          <button
-            onClick={() => setMode('playful')}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg transition-all"
-            style={{
-              backgroundColor: mode === 'playful' ? 'rgba(245, 158, 11, 0.3)' : 'transparent',
-              color: mode === 'playful' ? 'white' : 'rgb(156 163 175)'
-            }}
-          >
-            <Sparkles className="w-4 h-4" />
-            <span className="text-sm">Playful Evasion</span>
-          </button>
-        </motion.div>
+    <div className="min-h-screen flex flex-col justify-between relative overflow-x-hidden bg-[#050508] text-white selection:bg-white/20 selection:text-white">
+      {/* Dynamic Ambient Aurora Spotlights */}
+      <div
+        className="fixed top-0 left-1/4 -translate-x-1/2 w-[600px] h-[500px] rounded-full blur-[140px] pointer-events-none opacity-30 transition-colors duration-1000"
+        style={{ backgroundColor: themeConfig.hex }}
+      />
+      <div
+        className="fixed bottom-0 right-1/4 translate-x-1/2 w-[550px] h-[450px] rounded-full blur-[140px] pointer-events-none opacity-25 transition-colors duration-1000"
+        style={{ backgroundColor: themeConfig.toHex }}
+      />
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1 }}
-          className="w-full mt-20 lg:mt-0"
-        >
-          <AuthCard mode={mode} />
-        </motion.div>
+      {/* Background Subtle Grid Texture */}
+      <div className="fixed inset-0 bg-[radial-gradient(#ffffff08_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
+      {/* Sleek Floating Header */}
+      <Header />
+
+      {/* Main Two-Column Showcase Area */}
+      <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 my-auto py-6 sm:py-8 lg:py-10 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          {/* Left Column (Showcase: Enterprise Radar vs Playful Mascot) */}
+          <div className="lg:col-span-6 flex flex-col">
+            <LeftPane />
+          </div>
+
+          {/* Right Column (Auth Portal) */}
+          <div className="lg:col-span-6 flex flex-col items-center justify-center">
+            <AuthCard />
+          </div>
+        </div>
+      </main>
+
+      {/* Footer Info Line */}
+      <footer className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 text-center relative z-10">
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="mt-6 text-xs text-gray-500 text-center"
+          key={mode}
+          initial={{ opacity: 0, y: 4 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-xs text-zinc-500 font-mono"
         >
-          {mode === 'playful' ? 'Try to click Sign In with invalid credentials!' : 'Production-ready authentication experience'}
+          {mode === 'playful'
+            ? '💡 Interactive Sandbox: Hover near the "Sign In" button with invalid input to watch it evade, or click "Fill Demo" to unlock!'
+            : '🔒 Enterprise Protocol: 256-bit AES-GCM Encrypted • Hardware Passkey & WebAuthn Ready • TLS 1.3 Certified'}
         </motion.p>
-      </div>
-    </main>
+      </footer>
+    </div>
+  )
+}
+
+export default function Home() {
+  return (
+    <AuthProvider>
+      <SentinelAuthContent />
+    </AuthProvider>
   )
 }

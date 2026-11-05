@@ -1,19 +1,22 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next'
+import './globals.css'
 
 export const metadata: Metadata = {
-  title: "Sentinel-Auth | Interactive Auth Showcase",
-  description: "Glassmorphic authentication with playful runaway button and reactive mascot",
-};
+  title: 'Sentinel-Auth | Zero-Trust & Playful Authentication Showcase',
+  description:
+    'Ultra-premium glassmorphic authentication experience featuring dual Enterprise Zero-Trust telemetry and Playful runaway physics with an interactive tracking mascot.',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning className="dark">
+      <body suppressHydrationWarning className="bg-[#050508] antialiased selection:bg-white/20 selection:text-white">
+        {children}
+      </body>
     </html>
-  );
+  )
 }
